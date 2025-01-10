@@ -20,7 +20,6 @@
        }
 
         function adicionarHabito(){
-            const text = prompt("Digite seu habito")
 
             let lista = document.getElementById("lista")
 

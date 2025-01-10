@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Compras</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-    <p id="paragrafo" >Você digitou: </p>
-    <p id="outroParagrafo">Outro P</p>
-    
-    <button onclick="alert('Salvo com sucesso')">Salvar</button>
+    <div class="container">
+        <h1>Lista de compras</h1>
+        <p class="subtitle">Facilite sua ida ao supermercardo!</p>
 
-    <button onclick = "alterarP()">Clique aqui para alterar o texto do primeiro P</button>
 
-    <br>
+        <div class="form"> 
+            
+            <div> 
+                <input type="text" placeholder="Digite o nome do item"> 
+            <!-- https://www.w3schools.com/html/html_form_input_types.asp se for colocar senha -->
+                <input type="number" placeholder="quantidade" min ="1"> 
+            </div>
 
-    <h2>Lista de habitos saudaveis</h2>
-    <ol id="lista">
-        <li>Beber agua</li>
-        <li>Dormir Bem</li>
-        <li>Comer Frutas</li>
-        <li>Praticar atividades fisicas</li>
-    </ol>
-    
-     
+            <button id="add">Adicionar item</button>
 
-    <button onclick="adicionarHabito()">Adicionar Hábito</button>
+        </div>
+
+        <ul class="lista"></ul>
+
+        <div class="actions">
+            <button class="clean">limpar lista</button>
+            <button class="clean-buy">limpar comprados</button>
+
+
+        </div>
+    </div>    
 
     <script src="script/script.js"></script>
 
