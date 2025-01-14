@@ -1,32 +1,100 @@
-    // inner text
-        let nome = prompt("Digite seu nome:")
+let listaDeCompras = []
 
-        let paragrafo = document.getElementById("paragrafo")
+function adicionarItem(){
+    let itemInput = document.getElementById("item")
+    let quantidadeInput = document.getElementById("quantidade")
 
-        paragrafo.innerText = nome
-    
-      //  inner html
-        const outro = prompt("Agora digite uma tag com texto")
 
-        let outroParagrafo = document.getElementById("outroParagrafo")
+    if(itemInput.value.trim === ""){
+        return
+    }
+ 
+    let novoItem = {
+        id: Date.now(),
+        nome: itemInput.value,
+        quantidade: quantidadeInput.value || 1,
+        comprado: false
+    }
 
-        outroParagrafo.innerHTML = outro
-        function alterarP() {
-            let n= prompt(" Digite o valor que voce deja colocar no P")
+    listaDeCompras.push(novoItem)
+    salvarDados()
 
-            let pa = document.getElementById("paragrafo")
+   
+    atualizarInterface()
+    itemInput.value =""
+    quantidadeInput.value=""
+    itemInput.focus()
 
-            pa.innerText = n
-       }
+  
 
-        function adicionarHabito(){
+atualizarInterface()
 
-            let lista = document.getElementById("lista")
+}
 
-            let novoElementoLi = document.createElement("li")
-        //    "li" = <li>
+function removerItem(id){
+    listaDeCompras = listaDeCompras.filter((item)=> item.id != id)
+    salvarDados()
+    atualizarInterface()
+}
 
-            novoElementoLi.innerText = text
-            
-            lista.append(novoElementoLi)
-        }
+function limparLista(){
+    listaDeCompras = []
+    salvarDados()
+    atualizarInterface()
+}
+
+function atualizarInterface(){
+    let lista = document.querySelector(".lista")
+    lista.innerHTML =""
+ 
+    for(let i = 0; i < listaDeCompras.length; i++){
+     let item = document.createElement("li")
+ 
+     item.innerHTML = `
+            <input type='checkbox' onchange = "toggleItem(${listaDeCompras[i].id})"${listaDeCompras[i].comprado ? "checked" :""}/>
+            <p>${listaDeCompras[i].nome}                    x${listaDeCompras[i].quantidade} </p>
+            <button onclick="removerItem(${listaDeCompras[i].id})"> X </button>`
+              
+     lista.append(item)
+    }
+}
+
+function toggleItem(id){
+    const item= listaDeCompras.find((item => item.id ==id))
+    item.comprado = !item.comprado
+    salvarDados()
+}
+
+function limparComprados(){
+    listaDeCompras = listaDeCompras.filter((item) => item.comprado != true)
+    atualizarInterface()
+}
+
+document.getElementById("item").addEventListener ("keypress", function (e) {
+    if(e.key === "Enter"){
+        adicionarItem()
+}
+})
+
+document.getElementById("quantidade").addEventListener ("keypress", function (e) {
+    if(e.key === "Enter"){
+        adicionarItem()
+}
+})
+
+function carregarDados(){
+    const dados = localStorage.getItem("listaDeCompras")
+
+    if (dados){
+        listaDeCompras =JSON.parse(dados)
+        atualizarInterface()
+    }
+
+}
+
+function salvarDados(){
+    localStorage.setItem("listaDeCompras", JSON.stringify(listaDeCompras))
+}
+
+carregarDados()
+

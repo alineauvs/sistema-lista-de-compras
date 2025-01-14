@@ -41,5 +41,82 @@ h1{
 }
 
 #add:hover{
-    background-color:aqua
+    background-color:rgb(96, 192, 192)
+}
+
+
+.clean{
+    width: 50%;
+    background-color: rgb(219, 39, 144);
+    border-radius: 8px;
+    border: none;
+    padding: 5px 0px;
+    cursor: pointer
+}
+
+.clean:hover{
+    background-color: rgb(228, 192, 213);
+}
+
+.clean-buy{
+    width  : 50%;
+    width: 50%;
+    background-color: rgb(226, 9, 136);
+    border-radius: 8px;
+    border: none;
+    padding: 5px 0px;
+    cursor: pointer
+}
+
+.clean-buy:hover{
+    background-color: rgb(228, 192, 213);
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+#item{
+    width:70%;
+}
+
+
+#quantidade{
+    width:30%;
+}
+
+.inputGroup{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px
+}
+
+input:focus{
+    outline: none;
+    border-color: rgb(61, 155, 150);
+}
+
+li{
+    display: flex;
+    margin: 20px 0px;
+}
+
+li button{
+    color:red;
+    background-color: yellow;
+    border: 1px solid #111010;
+    cursor: pointer;
+    margin-left: auto ;
+}
+
+li p {
+    margin-left:5px
 }

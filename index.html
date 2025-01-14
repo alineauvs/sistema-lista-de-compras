@@ -15,21 +15,21 @@
 
         <div class="form"> 
             
-            <div> 
-                <input type="text" placeholder="Digite o nome do item"> 
+            <div class="inputGroup"> 
+                <input id=item type="text" placeholder="Digite o nome do item"> 
             <!-- https://www.w3schools.com/html/html_form_input_types.asp se for colocar senha -->
-                <input type="number" placeholder="quantidade" min ="1"> 
+                <input id=quantidade type="number" placeholder="quantidade" min ="1"> 
             </div>
 
-            <button id="add">Adicionar item</button>
+            <button id="add" onclick="adicionarItem()">Adicionar item</button>
 
         </div>
 
         <ul class="lista"></ul>
 
         <div class="actions">
-            <button class="clean">limpar lista</button>
-            <button class="clean-buy">limpar comprados</button>
+            <button class="clean" onclick="limparLista()">limpar lista</button>
+            <button class="clean-buy" onclick="limparComprados()">limpar comprados</button>
 
 
         </div>
