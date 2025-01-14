@@ -121,8 +121,21 @@ li p {
     margin-left:5px
 }
 
-@media (max-width:800px){
-    body{ background-color: red;
+@media (max-width: 800px){
+    
+/* body{ background-color: red; (muda fundo de cor se for em dimensao menor ) */
 
+    #item {
+        width:97%;
+    }
+
+    #quantidade {
+        width:97%;
+    }
+
+    
+
+    .inputGroup {
+     flex-direction: column;
     }
 }
